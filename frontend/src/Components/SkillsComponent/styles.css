@@ -1,0 +1,155 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills-title {
+  padding-top: 4.8rem;
+}
+
+.skills--wrapper__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+  row-gap: 24px;
+  padding: 0px 40px;
+}
+
+.skill-card {
+  width: 100%;
+}
+
+.skill-card--img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.skill-card--img-wrapper h4 {
+  font-family: "Roboto";
+  letter-spacing: 0.25px;
+  font-size: clamp(16px, 10vw, 18px);
+}
+
+.skill-card--img-wrapper img {
+  max-width: 170px;
+  padding: 20px;
+}
+.skill-card--img-wrapper.reactLogo img,
+.skill-card--img-wrapper.nodeLogo img {
+  max-width: 220px;
+  padding: 20px;
+}
+
+.skills--wrapper__outer {
+  padding-top: 4.8rem;
+}
+
+/* Skill logos */
+
+.css-skill-logo,
+.html-skill-logo,
+.js-skill-logo {
+  max-width: 150px !important;
+}
+
+.sql-skill-logo,
+.ps-skill-logo {
+  max-width: 220px !important;
+}
+
+.sql-skill-logo {
+  padding: 0 !important;
+  max-width: 140px !important;
+}
+
+.skill-card--img-wrapper.SQLLogo {
+  gap: 1.2rem;
+}
+
+/* + is for selecting sibling elements :) */
+
+.skill-card--img-wrapper.SQLLogo + p {
+  padding-top: 1.2rem;
+}
+
+@media screen and (max-width: 1076px) {
+  .skills--wrapper__inner {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    place-items: center;
+  }
+
+  .skill-card--img-wrapper.reactLogo img,
+  .skill-card--img-wrapper.nodeLogo img {
+    max-width: 247px;
+  }
+
+  .skill-card--img-wrapper.nodeLogo img {
+    padding-top: 25px;
+  }
+
+  .skill-card--img-wrapper.nextLogo img {
+    max-width: 195px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .skills--wrapper__inner {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  .tilt {
+    width: 350px !important;
+    height: 88vw !important;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  /* p {
+    font-size: 14px !important;
+  } */
+}
+
+@media screen and (max-width: 460px) {
+  .tilt {
+    width: 50vh !important;
+    /* min-height: 500px; */
+    height: 110vw !important;
+  }
+
+  .skills--wrapper__outer {
+    padding-top: 1.2rem;
+  }
+
+  .skills--wrapper__inner {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .tilt {
+    width: 40vh !important;
+    /* min-height: 500px; */
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .skill-card--img-wrapper img {
+    max-width: 146px;
+  }
+
+  .skill-card--img-wrapper.nodeLogo img {
+    padding-bottom: 12px;
+  }
+
+  .skills--wrapper__inner {
+    padding: 0px 10px;
+  }
+
+  .skill-card p {
+    font-size: 12px !important;
+  }
+}

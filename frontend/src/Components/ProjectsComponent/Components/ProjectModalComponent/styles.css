@@ -1,0 +1,367 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 8;
+}
+
+.modal-content {
+  aspect-ratio: 16/9;
+  background-color: white;
+  width: 100vh;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  padding: 20px;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  place-items: center;
+  column-gap: 30px;
+  /* z-index: 999999 !important; */
+}
+
+.img-wrapper {
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  margin-top: 60px;
+}
+
+.tech-icons--wrapper {
+  padding-top: 1.2rem;
+}
+
+.modal-info--wrapper p {
+  padding-top: 0.4rem;
+}
+
+.modal-info--wrapper h1 {
+  font-family: "Roboto";
+  font-size: clamp(16px, 8vw, 24px);
+}
+
+.close--btn {
+  position: absolute;
+  font-size: 24px;
+  top: 0;
+  right: 0;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  transition: all 150ms ease;
+}
+
+.close--btn:hover {
+  cursor: pointer;
+  color: grey;
+}
+
+/* flickity */
+
+.flickity-button {
+  background: none;
+  border: none;
+  transition: all 150ms ease;
+}
+
+.flickity-button.flickity-prev-next-button.previous {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  transform: translateX(-50%) translateY(-150%);
+}
+.flickity-button.flickity-prev-next-button.next {
+  position: absolute;
+  top: 40%;
+  left: 100%;
+  transform: translateX(-50%) translateY(-150%);
+}
+.flickity-button:hover {
+  background: #ffa714;
+  cursor: pointer;
+}
+
+.flickity-button:disabled {
+  opacity: 0.8;
+  cursor: default;
+}
+
+.flickity-button:disabled .flickity-button-icon {
+  fill: grey;
+}
+
+.flickity-button:disabled:hover {
+  background: none;
+}
+.flickity-prev-next-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+/* icon color */
+.flickity-button-icon {
+  fill: #222;
+  width: 18px;
+  margin-top: 3px;
+}
+
+.carousel img {
+  width: 100%;
+  height: 250px !important;
+  object-fit: cover;
+}
+
+.carousel {
+  max-width: 100%;
+  max-height: 100%;
+  height: 400px;
+  overflow: hidden; /* optional, to hide any overflowing content */
+  z-index: 999;
+}
+
+/* position dots in carousel */
+.flickity-page-dots {
+  bottom: 0px;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+.flickity-page-dots .dot {
+  width: 8px;
+  height: 8px;
+  margin-left: 4px;
+  opacity: 1;
+  background: transparent;
+  border-radius: 50%;
+  outline: 1px solid black;
+  background-color: transparent;
+  transition: all 150ms ease;
+}
+
+.flickity-page-dots .dot:hover {
+  background: rgb(196, 196, 196);
+  cursor: pointer;
+}
+
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  background: black;
+}
+
+.pwa--wrapper {
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+}
+
+.pwa--wrapper img {
+  max-width: 100px;
+  transition: all 150ms ease;
+}
+
+.pwa--wrapper img:hover {
+  cursor: pointer;
+  filter: brightness(1.3);
+}
+
+.figmaWrapper {
+  /* margin-top: 1.2rem; */
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.figmaWrapper button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  padding: 8px 16px;
+  transition: all 250ms ease;
+  border-radius: 80px;
+  height: 45px;
+  background-color: #2294ff;
+  /* border: 1px solid white; */
+}
+
+.figmaWrapper button:hover {
+  cursor: pointer;
+  filter: invert(1);
+}
+
+.figmaWrapper button:hover .figma-link {
+  filter: invert(1);
+}
+
+.figma-btn-logo {
+  max-width: 20px;
+}
+
+.figma-link {
+  text-decoration: none;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: white;
+  letter-spacing: 0.25px;
+}
+
+.pwa-logo {
+  max-width: 70px;
+}
+
+.last-project .btns--wrapper__inner button {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 780px) {
+  /* CSS FOR ILDIDEV MODAL */
+
+  .last-project .btns--wrapper__inner button {
+    margin-top: 24px;
+  }
+
+  .modal-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 50vh;
+    height: 105vw;
+    place-items: start;
+  }
+
+  .img-wrapper {
+    margin-top: 0;
+  }
+
+  .carousel {
+    height: 323px;
+  }
+  .modal-info--wrapper {
+    padding-top: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 558px) {
+  .modal-content {
+    width: 44vh;
+    height: 137vw;
+    grid-template-rows: 0.7fr 1fr;
+    margin-top: 60px;
+  }
+
+  .img-wrapper {
+    margin-top: 12px;
+  }
+
+  .modal-info--wrapper h1 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 458px) {
+  .img-wrapper {
+    margin-top: 0px;
+    padding-bottom: 0;
+  }
+
+  .modal-info--wrapper {
+    padding: 15px;
+  }
+
+  .flickity-button.flickity-prev-next-button.previous {
+    transform: none;
+    top: 89%;
+    left: 3%;
+  }
+  .flickity-button.flickity-prev-next-button.next {
+    transform: none;
+    left: 89%;
+    top: 89%;
+  }
+
+  .modal-content {
+    height: 175vw;
+  }
+
+  .figmaWrapper {
+    display: none;
+  }
+
+  .carousel img {
+    height: 150px !important;
+  }
+
+  .carousel {
+    height: 185px;
+  }
+}
+
+@media screen and (min-width: 785px) and (max-height: 800px) {
+  .modal-content {
+    width: 600px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .modal-content {
+    height: 550px;
+  }
+}
+
+@media screen and (max-height: 670px) {
+  .modal-content {
+    margin-top: 80px;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-height: 800px) {
+  .modal-content {
+    width: 811px !important;
+  }
+}
+
+@media screen and (max-width: 380px) and (max-height: 670px) {
+  .modal-content {
+    margin-top: 80px;
+  }
+}
+
+@media screen and (min-width: 540px) and (max-height: 720px) {
+  .modal-content {
+    height: 112vw;
+  }
+
+  .flickity-button-icon {
+    margin-top: 45px;
+  }
+
+  .carousel {
+    height: 205px;
+  }
+
+  .carousel img {
+    height: 180px !important;
+  }
+
+  .btns--wrapper__inner button {
+    padding: 4px 8px;
+  }
+}
+
+/* @media screen and (max-width: 360px) {
+  .modal-content {
+    height: 600px;
+  }
+} */

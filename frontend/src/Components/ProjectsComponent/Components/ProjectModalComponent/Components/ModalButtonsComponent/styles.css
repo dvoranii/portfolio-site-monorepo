@@ -1,0 +1,100 @@
+.btns--wrapper__outer {
+  width: 100%;
+}
+
+.btns--wrapper__inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.btns--wrapper__inner button {
+  border: none;
+  padding: 8px 16px;
+  margin-top: 1.2rem;
+  font-family: "Montserrat";
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 250ms ease;
+  background-color: rgb(236, 236, 236);
+}
+
+.btns--wrapper__inner button:hover {
+  background: black;
+  cursor: pointer;
+  color: white;
+}
+
+.btns--wrapper__inner button:hover img {
+  filter: invert(1);
+}
+
+.btns--wrapper__inner button img {
+  width: 40px;
+  padding-right: 10px;
+}
+
+.btn--1__wrapper--inner,
+.btn--2__wrapper--inner {
+  width: 50%;
+}
+
+.btn--1__wrapper--inner button,
+.btn--2__wrapper--inner button {
+  width: 85%;
+}
+
+.btn--1__wrapper--inner.about button,
+.btn--2__wrapper--inner.about button {
+  width: 100%;
+}
+
+.btns--wrapper__inner a {
+  text-decoration: none;
+}
+
+.disabled-button {
+  pointer-events: none;
+}
+
+.disabled-button img {
+  opacity: 0.3;
+}
+@media screen and (max-width: 690px) {
+  .modal-info--wrapper p {
+    font-size: 12px;
+  }
+  .modal-info--wrapper h1 {
+    font-size: 24px;
+  }
+
+  .btn--1__wrapper--inner button,
+  .btn--2__wrapper--inner button {
+    width: 88%;
+  }
+
+  .modal-icon {
+    height: 24px;
+  }
+
+  .icons-wrapper-inner {
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .modal-info--wrapper h1 {
+    font-size: 18px;
+  }
+
+  .btn--1__wrapper--inner button,
+  .btn--2__wrapper--inner button {
+    width: 95%;
+  }
+
+  .btns--wrapper__inner button {
+    margin-top: 8px;
+  }
+}

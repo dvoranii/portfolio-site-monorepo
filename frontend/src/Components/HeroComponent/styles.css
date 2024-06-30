@@ -1,0 +1,236 @@
+.hero--wrapper {
+  background-color: #0777da;
+  padding-top: 3.2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero--inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px 0px 40px;
+}
+
+.hero--intro-text__wrapper {
+  width: 60%;
+  margin-top: -120px;
+}
+
+.hero--intro-text__wrapper h1 {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  color: white;
+  text-shadow: 2px 2px 4px #0000007d;
+}
+
+.hero--intro-text__wrapper h2 {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: white;
+  text-shadow: 2px 2px 4px #00000042;
+}
+
+.hero--intro-text__wrapper p {
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
+  padding-top: 12px;
+  color: white;
+}
+
+.hero--img__wrapper--inner img {
+  max-width: 120%;
+  height: auto;
+}
+
+/* parallax */
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+/* Hero buttons */
+#projects-btn,
+#services-btn {
+  background: rgb(252, 252, 252);
+  box-shadow: 0px 0px 0px 2px #fff;
+  border-radius: 1px;
+  color: #0d79de;
+  font-weight: 600;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 40px;
+  padding-top: 20px;
+  padding-left: 14px;
+}
+
+.custom-btn {
+  width: 128px;
+  height: 36px;
+  color: #fff;
+  border-radius: 5px;
+  font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.089);
+  outline: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.btn-3 {
+  background: linear-gradient(267.29deg, #30deeb 6.46%, #34dbff 97.39%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  transform: scale(1.15);
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+}
+.btn-3 span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: -5%;
+}
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: #33f1ff;
+  transition: all 0.3s ease;
+}
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3:hover {
+  background: transparent;
+  box-shadow: none;
+}
+.btn-3:hover:before {
+  height: 100%;
+}
+.btn-3:hover:after {
+  width: 100%;
+}
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -4%;
+  background: #33f1ff;
+  transition: all 0.3s ease;
+}
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3 span:hover:before {
+  height: 100%;
+}
+.btn-3 span:hover:after {
+  width: 100%;
+}
+
+.laptop-img {
+  opacity: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.laptop-img.loaded {
+  animation: fadeInSlideLeft 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+@keyframes fadeInSlideLeft {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  #projects-btn,
+  #services-btn {
+    width: 106px;
+  }
+  .hero-btns {
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .hero--intro-text__wrapper {
+    text-align: center;
+    margin-top: 0px !important;
+  }
+  .hero--inner {
+    flex-direction: column;
+    padding: 105px 0px 0px 0px;
+  }
+
+  .hero--img__wrapper--inner img {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 2.8rem;
+  }
+}

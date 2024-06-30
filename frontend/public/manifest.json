@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-website",
+  "short_name": "Ildi's Portfolio",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "description": "Ildi Dvorani: Experienced Full Stack JavaScript Developer specialized in React. Explore my portfolio to view my latest projects, skills, and let's collaborate to bring your vision to life.",
+  "icons": [
+    {
+      "src": "/assets/icons/ildidev-logo_144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/ildidev-logo_512x512-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

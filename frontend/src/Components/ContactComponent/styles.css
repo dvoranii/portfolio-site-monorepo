@@ -1,0 +1,182 @@
+.contact-section {
+  padding-top: 3rem;
+  background-color: #0777da;
+  background-image: linear-gradient(#0778daf1, #045ba7ec),
+    url(/assets/Contact-World-BG.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 4.8rem;
+  background-attachment: fixed;
+}
+
+.contact-section__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0px 20px;
+}
+
+.contact-section__inner h1 {
+  text-align: center;
+  color: #f1f1f1;
+  letter-spacing: 0.25px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.342);
+}
+
+.contact-section__inner p {
+  color: white;
+}
+
+/* Contact Form Styles */
+.contact-form {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  /* z-index: 0; */
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.input-row input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f8f8f8;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  color: #fefefe;
+  background: #00519780;
+  position: relative;
+}
+
+.input-row input::placeholder {
+  color: rgba(255, 255, 255, 0.808);
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+.input-row input:focus,
+.message--textarea:focus {
+  outline: none;
+  box-shadow: 0px 0px 8px white;
+}
+
+.message--textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  background-color: #f1f1f1;
+  color: #fefefe;
+  background: #00519780;
+  max-height: 270px;
+  min-height: 200px;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+.message--textarea::placeholder {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 0.767);
+}
+
+.button-row {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.send--btn {
+  padding: 20px 40px;
+  background-color: #f1f1f1;
+  color: #0073d8;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Montserrat";
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease;
+}
+
+.send--btn:hover {
+  background-color: #03497b;
+  color: white;
+}
+
+.here-link {
+  border-bottom: 2px solid white;
+}
+
+.outlook-span a {
+  transition: all 150ms ease;
+}
+
+.outlook-span a:hover {
+  text-decoration: none !important;
+  border-bottom: 2px solid white;
+  text-shadow: 0px 0px 4px rgb(0, 225, 255);
+}
+/* 
+.here-link:hover {
+} */
+
+.outlook-span {
+  font-family: "Montserrat";
+  color: white;
+}
+.outlook-span a {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+.outlook-span a:hover {
+  text-decoration: underline;
+}
+
+.email-input__wrapper,
+.name-input__wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.error-message {
+  position: absolute;
+  left: 2px;
+  top: 40px;
+  font-size: 11px;
+  color: white;
+  letter-spacing: 0.3px;
+  margin-top: 3px;
+}
+
+.loading-wrapper,
+.check-wrapper {
+  width: 65px;
+  height: 65px;
+}
+
+.message-sent {
+  font-size: 10px;
+  color: #fff;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 4px;
+}
+@media screen and (max-width: 527px) {
+  .error-message {
+    font-size: 10px;
+  }
+
+  .message--textarea {
+    margin-top: 12px;
+  }
+}

@@ -1,0 +1,28 @@
+.thumbnail-overlay {
+  position: absolute;
+  top: -100%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.411);
+  transition: all 200ms ease;
+}
+
+.overlay--inner {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay--inner p {
+  color: white;
+  text-transform: uppercase;
+  font-family: "Roboto";
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: all 250ms ease;
+}
+
+.overlay--inner p:hover {
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.562);
+}

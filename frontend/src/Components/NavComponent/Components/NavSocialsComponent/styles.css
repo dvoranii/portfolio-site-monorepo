@@ -1,0 +1,17 @@
+.socials--list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 150px;
+}
+
+.social--logo {
+  min-width: 30px;
+  width: 100%;
+  filter: invert(1);
+}
+
+.socials--list li {
+  padding: 0px 10px;
+}

@@ -1,0 +1,135 @@
+.projects-title::before {
+  width: 125px;
+  left: 66%;
+}
+
+.projects--thumbnails__container-outer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 46px 20px;
+  column-gap: 24px;
+}
+
+/* modal */
+.modal-inner-thumb {
+  max-width: 70%;
+}
+
+.modal-inner-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* GRID */
+
+.sub-grid {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 0.25fr 0.5fr 0.25fr;
+  grid-template-rows: 1fr;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.project_3-thumbnail--wrapper {
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project_3-thumbnail img {
+  width: 100%;
+}
+
+.project_4-thumbnail--wrapper {
+  width: 100%;
+  height: fit-content;
+  background: linear-gradient(to bottom, #e5e8ee, #51555b);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.project_5-thumbnail--wrapper {
+  width: 100%;
+  height: auto;
+  background: linear-gradient(to bottom, #0777da, #03549b);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.project_2-thumbnail img,
+.project_3-thumbnail img,
+.project_4-thumbnail img,
+.project_5-thumbnail img {
+  max-width: 100%;
+}
+
+.project_5-thumbnail {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  padding: 10% 0%;
+}
+.project_5-thumbnail img {
+  width: 40%;
+}
+
+.project_2-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_1-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_3-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_4-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_5-thumbnail--wrapper:hover .thumbnail-overlay {
+  transform: translateY(100%);
+  cursor: pointer;
+}
+
+.modal-component {
+  z-index: 8;
+}
+@media screen and (max-width: 780px) {
+  .projects--thumbnails__container-outer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 2.4rem;
+    column-gap: 0;
+  }
+
+  .project_3-thumbnail {
+    max-height: 50vw;
+  }
+
+  .project_3-thumbnail img {
+    margin-top: -50px;
+  }
+
+  .sub-grid {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+    row-gap: 2.4rem;
+  }
+
+  .project_2-thumbnail--wrapper {
+    grid-row: 2;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects--thumbnails__container-outer {
+    padding-top: 1.2rem;
+  }
+
+  #projects-section {
+    padding-top: 3.6rem;
+  }
+
+  .title-container {
+    padding-top: 0;
+  }
+}
