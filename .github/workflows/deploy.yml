@@ -43,3 +43,4 @@ jobs:
 
       - name: Restart server
         run: ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "pm2 restart all || pm2 start /var/www/ildidev/backend/index.js"
+# to trigger redeployment after editing sudoers file on server
