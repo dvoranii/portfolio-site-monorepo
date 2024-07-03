@@ -32,11 +32,14 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DO_SSH_KEY }}
 
+      - name: Create directories on server
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "sudo mkdir -p /var/www/ildidev/frontend /var/www/ildidev/backend && sudo chown -R ${{ secrets.DO_SSH_USER }} /var/www/ildidev"
+
       - name: Copy frontend files to server
-        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude '.env' --exclude 'config/serviceAccounts.json' ./frontend/dist/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev.com/frontend
+        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude '.env' --exclude 'config/serviceAccounts.json' ./frontend/dist/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/frontend
 
       - name: Copy backend files to server
-        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude '.env' --exclude 'config/serviceAccounts.json' ./backend/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev.com/backend
+        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude '.env' --exclude 'config/serviceAccounts.json' ./backend/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/backend
 
       - name: Restart server
-        run: ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "pm2 restart all || pm2 start /var/www/ildidev.com/backend/index.js"
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "pm2 restart all || pm2 start /var/www/ildidev/backend/index.js"
