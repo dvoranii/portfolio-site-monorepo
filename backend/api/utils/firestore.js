@@ -11,20 +11,24 @@ let firestore;
 async function initializeFirestore() {
   let serviceAccount;
 
-  if (process.env.NODE_ENV === "production") {
-    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-  } else {
-    const serviceAccountPath = resolve(
-      __dirname,
-      "../config/serviceAccount.json"
-    );
-    try {
+  try {
+    if (process.env.NODE_ENV === "production") {
+      console.log(
+        "FIREBASE_SERVICE_ACCOUNT:",
+        process.env.FIREBASE_SERVICE_ACCOUNT
+      );
+      serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+    } else {
+      const serviceAccountPath = resolve(
+        __dirname,
+        "../config/serviceAccount.json"
+      );
       const data = await fs.readFile(serviceAccountPath, "utf-8");
       serviceAccount = JSON.parse(data);
-    } catch (error) {
-      console.error("Error reading service account file:", error);
-      throw error;
     }
+  } catch (error) {
+    console.error("Error initializing Firestore:", error);
+    throw error;
   }
 
   firestore = new Firestore({
