@@ -11,7 +11,7 @@ const csrfMiddleware = (app) => {
   app.use(parseForm);
   app.use(csrfProtection);
 
-  app.get("/csrf", (req, res) => {
+  app.get("/api/csrf", (req, res) => {
     console.log(req.csrfToken());
     res.send({ csrfToken: req.csrfToken() });
   });

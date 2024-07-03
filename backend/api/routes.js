@@ -8,7 +8,7 @@ import saveFormSubmission from "./utils/firestore.js";
 
 const router = express.Router();
 
-router.post("/contact", async (req, res) => {
+router.post("/api/contact", async (req, res) => {
   let { name, email, message, recaptchaToken } = req.body;
 
   const nameError = validateInput.name(name);
@@ -38,8 +38,6 @@ router.post("/contact", async (req, res) => {
     await saveFormSubmission({ name, email, message });
 
     const mailResult = await sendMail({ name, email, message });
-
-    // res.status(200).send({ status: "success" });
 
     if (mailResult.success) {
       res.status(200).send({ status: "success" });
