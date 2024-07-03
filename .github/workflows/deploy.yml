@@ -16,10 +16,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "22.x"
+          node-version: "18.x"
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies for frontend
+        run: npm install --workspace=frontend
+
+      - name: Install dependencies for backend
+        run: npm install --workspace=backend
 
       - name: Build frontend
         run: npm run build --workspace=frontend
@@ -29,11 +32,11 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DO_SSH_KEY }}
 
-      - name: Copy files to server
-        run: |
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./frontend/dist/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev.com
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./backend/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev.com/backend
+      - name: Copy frontend files to server
+        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude '.env' --exclude 'config/serviceAccounts.json' ./frontend/dist/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev.com/frontend
+
+      - name: Copy backend files to server
+        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude '.env' --exclude 'config/serviceAccounts.json' ./backend/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev.com/backend
 
       - name: Restart server
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "pm2 restart all || pm2 start /var/www/ildidev.com/backend/index.js"
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "pm2 restart all || pm2 start /var/www/ildidev.com/backend/index.js"

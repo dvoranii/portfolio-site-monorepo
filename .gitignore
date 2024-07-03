@@ -13,4 +13,4 @@ node_modules/
 # Ignore backend specific files
 /backend/node_modules/
 /backend/.env
-/backend/api/config/serviceAccount.json
+/backend/api/config
