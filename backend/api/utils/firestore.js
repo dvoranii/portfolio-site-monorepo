@@ -13,11 +13,22 @@ async function initializeFirestore() {
 
   try {
     if (process.env.NODE_ENV === "production") {
+      console.log(process.env.NODE_ENV);
       console.log(
         "FIREBASE_SERVICE_ACCOUNT:",
         process.env.FIREBASE_SERVICE_ACCOUNT
       );
-      serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+      const base64String = process.env.FIREBASE_SERVICE_ACCOUNT;
+
+      if (base64String) {
+        const decodedString = Buffer.from(base64String, "base64").toString(
+          "utf8"
+        );
+        serviceAccount = JSON.parse(decodedString);
+        console.log(serviceAccount);
+      } else {
+        throw new Error("FIREBASE_SERVICE_ACCOUNT not found in .env file");
+      }
     } else {
       const serviceAccountPath = resolve(
         __dirname,
