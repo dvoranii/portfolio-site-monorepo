@@ -19,6 +19,7 @@ async function initializeFirestore() {
         process.env.FIREBASE_SERVICE_ACCOUNT
       );
       const base64String = process.env.FIREBASE_SERVICE_ACCOUNT;
+      console.log(base64String);
 
       if (base64String) {
         const decodedString = Buffer.from(base64String, "base64").toString(
