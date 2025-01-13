@@ -75,8 +75,6 @@ function ContactComponent() {
       message: sanitizeInput.text(formData.message),
     };
 
-    console.log("Sanitized data:", sanitizedData);
-
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
         method: "POST",
@@ -89,10 +87,7 @@ function ContactComponent() {
         mode: "cors",
       });
 
-      console.log("Fetch request sent");
-
       const result = await response.json();
-      console.log("Response received:", result);
 
       if (result.status === "success") {
         console.log("Form submission successful");

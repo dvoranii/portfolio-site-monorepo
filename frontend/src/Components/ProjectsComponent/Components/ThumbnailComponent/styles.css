@@ -1,19 +1,26 @@
-.project_1-thumbnail img {
+.thumbnail-wrapper:hover .thumbnail-overlay {
+  transform: translateY(0); /* Reveal overlay */
+  cursor: pointer;
+}
+
+.thumbnail-wrapper img {
+  width: 100%;
   max-width: 100%;
 }
 
-.project_2-thumbnail {
+.project_3-thumbnail {
   display: flex;
   justify-content: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.5)),
-    url("/assets/modals/logistics-deal.jpg");
+  align-items: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding-top: 20%;
-  padding-bottom: 17%;
+  position: relative;
+  height: 100%;
 }
-.project_2-thumbnail img {
-  max-width: 80%;
+
+.project_3-thumbnail img {
+  width: 75%;
+  height: auto;
 }
 
 .project_2-thumbnail--wrapper {
@@ -22,12 +29,36 @@
     rgba(128, 128, 128, 0.685),
     rgb(77, 77, 77)
   );
+  position: relative;
+}
+
+.project_1-thumbnail--wrapper {
+  border: 2px solid rgb(213, 213, 213);
 }
 
 .project_1-thumbnail--wrapper,
-.project_2-thumbnail--wrapper {
-  border-radius: 20px;
+.project_2-thumbnail--wrapper,
+.project_3-thumbnail--wrapper,
+.project_4-thumbnail--wrapper,
+.project_5-thumbnail--wrapper,
+.project_6-thumbnail--wrapper {
+  border-radius: var(--border-radius);
   overflow: hidden;
-  background-color: #1c1b20;
   position: relative;
+  background-color: #1c1b20;
+  max-height: 300px;
+}
+
+.project_2-thumbnail--wrapper img {
+  width: 100%;
+}
+
+.project_1-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_2-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_3-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_4-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_5-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_6-thumbnail--wrapper:hover .thumbnail-overlay {
+  transform: translateY(0);
+  cursor: pointer;
 }

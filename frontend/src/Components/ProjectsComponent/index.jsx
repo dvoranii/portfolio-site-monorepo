@@ -24,33 +24,31 @@ function ProjectsComponent() {
       ></TitleComponent>
 
       <div className="projects--thumbnails__container-outer">
-        {Object.values(projects)
-          .filter((_, index) => index <= 1)
-          .map((project) => (
-            <ThumbnailComponent
-              key={project.id}
-              project={project}
-              onClick={handleThumbnailClick}
-            />
-          ))}
+        {projects.slice(0, 3).map((project) => (
+          <ThumbnailComponent
+            key={project.id}
+            project={project}
+            onClick={handleThumbnailClick}
+          />
+        ))}
 
-        <div className="sub-grid">
-          {Object.values(projects)
-            .filter((_, index) => index > 1)
-            .map((project) => (
+        <div className="sub-grid--outer">
+          <div className="sub-grid--inner">
+            {projects.slice(-3).map((project) => (
               <ThumbnailComponent
                 key={project.id}
                 project={project}
                 onClick={handleThumbnailClick}
               />
             ))}
+          </div>
         </div>
       </div>
 
       <ProjectModalComponent
         className="modal-component"
         isOpen={isModalOpen}
-        isLastProject={currentProject?.id === 5}
+        isLastProject={currentProject?.id === projects.length}
         onClose={() => {
           setIsModalOpen(false);
           setCurrentProject(null);

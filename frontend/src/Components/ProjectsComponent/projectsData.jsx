@@ -18,13 +18,39 @@ import OPGalleryImg02 from "/assets/modals/carouselImages/op-bg-02.png";
 import OPGalleryImg03 from "/assets/modals/carouselImages/op-bg-03.png";
 import OPGalleryImg1 from "/assets/modals/carouselImages/op-carousel-thumb.png";
 
+import FSFThumb from "/assets/modals/carouselImages/fsf-thumbnail.png";
+import FSFCarouselImg1 from "/assets/modals/carouselImages/fsf-carousel-img-1.png";
+import FSFCarouselImg2 from "/assets/modals/carouselImages/fsf-carousel-img-2.png";
+import FSFCarouselImg3 from "/assets/modals/carouselImages/fsf-carousel-img-3.png";
+
 import IldiDevCarouselThumb from "/assets/modals/carouselImages/ildidev-thumb.png";
 
 import PersonalProjectsCarouselImg from "/assets/personal-projects-thumb01.png";
 
-const projects = {
-  project_1: {
+const projects = [
+  {
     id: 1,
+    title: `Fullstack Fanatic - Blogs and Tutorials`,
+    thumbnail: FSFThumb,
+    techStack: [
+      "React",
+      "Typescript",
+      "CSS",
+      "HTML",
+      "SQL",
+      "Node",
+      "Photoshop",
+    ],
+    projectDescription:
+      "I designed and developed a responsive full-stack web app using React, TypeScript, Node.js, and MySQL. Users can sign up manually or with Google, access free and premium blogs and tutorials via Stripe, customize profiles, comment, follow others, and chat. The app includes robust security features like CSRF protection, reCAPTCHA, input sanitization, and IP blacklisting. Deployed with a CI/CD pipeline for streamlined updates.",
+    galleryImages: [FSFCarouselImg1, FSFCarouselImg2, FSFCarouselImg3],
+    githubURL: "https://github.com/dvoranii/fullstack-fanatic-mysql/tree/main",
+    liveDemoURL: "https://staging.fullstackfanatic.com/",
+    figmaLink:
+      "https://www.figma.com/design/QI30cDuiJrvMoWTAKRunZV/Fullstack-Fanatic?node-id=0-1&p=f&t=AdVBBbt6mhtSsfhN-0",
+  },
+  {
+    id: 2,
     title: `OG Creations Recording Studio Site`,
     thumbnail: OGModalThumb,
     techStack: [
@@ -47,8 +73,8 @@ const projects = {
     githubURL: "https://github.com/dvoranii/og-creations-website",
     liveDemoURL: "https://www.ogcreations.ca/",
   },
-  project_2: {
-    id: 2,
+  {
+    id: 3,
     title: `CGL Website`,
     thumbnail: CGLModalThumb,
     techStack: [
@@ -65,8 +91,8 @@ const projects = {
     githubURL: "https://github.com/dvoranii/reCaptchaV2",
     liveDemoURL: "https://cglwebsite.vercel.app/",
   },
-  project_3: {
-    id: 3,
+  {
+    id: 4,
     title: "Outpost 379 Marketing Agency",
     thumbnail: OutpostThumb,
     techStack: ["JavaScript", "HTML", "CSS"],
@@ -76,8 +102,8 @@ const projects = {
     githubURL: "N/A",
     liveDemoURL: "https://outpost379.com/",
   },
-  project_4: {
-    id: 4,
+  {
+    id: 5,
     title: "Personal Projects Website",
     thumbnail: PersonalProjectsThumb,
     techStack: ["React", "Vite", "JavaScript", "CSS", "HTML"],
@@ -87,8 +113,8 @@ const projects = {
     githubURL: "https://github.com/dvoranii/personal-projects-site",
     liveDemoURL: "https://personal-projects-site.vercel.app/",
   },
-  project_5: {
-    id: 5,
+  {
+    id: 6,
     title: "Bonus: website metadata",
     thumbnail: MyLogo,
     techStack: [
@@ -108,5 +134,6 @@ const projects = {
     figmaLink:
       "https://www.figma.com/file/LkeTEUFRxx2N3XbVw7KedA/IlDIDEV?type=design&node-id=0-1&mode=design",
   },
-};
+];
+
 export default projects;

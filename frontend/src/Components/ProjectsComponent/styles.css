@@ -1,3 +1,11 @@
+:root {
+  --primary-gradient: linear-gradient(to bottom, #e5e8ee, #51555b);
+  --secondary-gradient: linear-gradient(to bottom, #0777da, #03549b);
+  --border-radius: 20px;
+  --gap: 24px;
+}
+
+/* Title */
 .projects-title::before {
   width: 125px;
   left: 66%;
@@ -5,13 +13,13 @@
 
 .projects--thumbnails__container-outer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  padding: 46px 20px;
-  column-gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 48px 24px 128px 48px;
+  gap: var(--gap);
 }
 
-/* modal */
+/* Modal */
 .modal-inner-thumb {
   max-width: 70%;
 }
@@ -22,83 +30,92 @@
   align-items: center;
 }
 
-/* GRID */
-
-.sub-grid {
+.project_1-thumbnail--wrapper {
+  grid-row: 1;
   grid-column: span 2;
-  display: grid;
-  grid-template-columns: 0.25fr 0.5fr 0.25fr;
-  grid-template-rows: 1fr;
-  gap: 20px;
-  padding-top: 20px;
+}
+.project_2-thumbnail--wrapper,
+.project_3-thumbnail--wrapper {
+  grid-row: 2;
+  height: 100%;
 }
 
 .project_3-thumbnail--wrapper {
-  background-size: cover;
-  background-repeat: no-repeat;
-  border: 1px solid rgba(0, 0, 0, 0.075);
-  border-radius: 20px;
-  position: relative;
+  width: 100%;
   overflow: hidden;
 }
-
-.project_3-thumbnail img {
-  width: 100%;
-}
-
 .project_4-thumbnail--wrapper {
-  width: 100%;
-  height: fit-content;
-  background: linear-gradient(to bottom, #e5e8ee, #51555b);
+  background-size: cover;
   border-radius: 20px;
-  overflow: hidden;
-  position: relative;
+}
+
+.project_4-thumbnail--wrapper img {
+  width: 100%;
 }
 
 .project_5-thumbnail--wrapper {
-  width: 100%;
-  height: auto;
-  background: linear-gradient(to bottom, #0777da, #03549b);
-  border-radius: 20px;
-  position: relative;
+  background: var(--primary-gradient);
+  max-width: 100%;
   overflow: hidden;
+  border-radius: 20px;
 }
-.project_2-thumbnail img,
-.project_3-thumbnail img,
-.project_4-thumbnail img,
-.project_5-thumbnail img {
+
+.project_6-thumbnail--wrapper {
+  background: var(--secondary-gradient);
+  border-radius: 20px;
+}
+
+.project_5-thumbnail--wrapper img {
+  width: 100%;
+}
+
+/* Image Styles */
+.thumbnail-wrapper img {
+  width: 100%;
   max-width: 100%;
 }
 
-.project_5-thumbnail {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  align-items: center;
-  padding: 10% 0%;
-}
-.project_5-thumbnail img {
+.project_6-thumbnail img {
   width: 40%;
 }
 
-.project_2-thumbnail--wrapper:hover .thumbnail-overlay,
-.project_1-thumbnail--wrapper:hover .thumbnail-overlay,
-.project_3-thumbnail--wrapper:hover .thumbnail-overlay,
-.project_4-thumbnail--wrapper:hover .thumbnail-overlay,
-.project_5-thumbnail--wrapper:hover .thumbnail-overlay {
+.project_6-thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Sub-grid for Last 3 Projects */
+
+.sub-grid--outer {
+  grid-row: 3;
+  grid-column: span 2;
+}
+
+.sub-grid--inner {
+  display: grid;
+  grid-template-columns: 0.25fr 0.5fr 0.25fr;
+  gap: var(--gap);
+}
+
+/* Hover Effect */
+.thumbnail-wrapper:hover .thumbnail-overlay {
   transform: translateY(100%);
   cursor: pointer;
 }
 
+/* Modal Component */
 .modal-component {
   z-index: 8;
 }
+
+/* Responsive Styling */
 @media screen and (max-width: 780px) {
   .projects--thumbnails__container-outer {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    row-gap: 2.4rem;
-    column-gap: 0;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2.4rem;
   }
 
   .project_3-thumbnail {
@@ -113,10 +130,6 @@
     grid-template-columns: 1fr;
     padding-top: 0;
     row-gap: 2.4rem;
-  }
-
-  .project_2-thumbnail--wrapper {
-    grid-row: 2;
   }
 }
 

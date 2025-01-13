@@ -6,7 +6,6 @@ import AboutComponent from "./Components/AboutComponent";
 import SkillsComponent from "./Components/SkillsComponent";
 import ProjectsComponent from "./Components/ProjectsComponent";
 import CompaniesComponent from "./Components/CompaniesComponent";
-import ComingSoonComponent from "./Components/ComingSoonComponent";
 import ContactComponent from "./Components/ContactComponent";
 import FooterComponent from "./Components/FooterComponent";
 function App() {
@@ -36,9 +35,6 @@ function App() {
       <SkillsComponent></SkillsComponent>
       <CompaniesComponent></CompaniesComponent>
       <ProjectsComponent className={`projects-component`}></ProjectsComponent>
-      <ComingSoonComponent
-        className={`comingSoon-component`}
-      ></ComingSoonComponent>
       <ContactComponent></ContactComponent>
       <FooterComponent></FooterComponent>
     </>

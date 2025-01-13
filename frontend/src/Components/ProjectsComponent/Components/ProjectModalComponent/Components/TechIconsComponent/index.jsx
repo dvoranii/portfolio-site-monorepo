@@ -13,13 +13,12 @@ const ICON_MAP = {
   Photoshop: "/assets/skillIcons/Adobe-Photoshop-Logo.png",
   THREE: "/assets/skillIcons/Three.js_Icon.svg",
   Vite: "/assets/skillIcons/Vitejs-logo.svg",
+  SQL: "/assets/skillIcons/SQL-LOGO-2.jpg",
 };
 
-// eslint-disable-next-line react/prop-types
 function TechIconsComponent({ icons }) {
   return (
     <div className="icons-wrapper-inner">
-      {/* eslint-disable-next-line react/prop-types */}
       {icons.map((icon) => (
         <img
           className={`modal-icon ${icon}`}

@@ -18,11 +18,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://www.ildidev.com",
-      // "https://desolate-river-30096-d4bafee74101.herokuapp.com",
-    ],
+    origin: ["http://localhost:5173", "https://www.ildidev.com"],
     credentials: true,
   })
 );

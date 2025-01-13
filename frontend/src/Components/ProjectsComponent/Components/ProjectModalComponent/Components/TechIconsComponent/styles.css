@@ -1,6 +1,6 @@
 .modal-icon {
   height: 30px;
-  object-fit: contain; /* keeps the images aspect ratio */
+  object-fit: contain;
   object-position: center;
 }
 

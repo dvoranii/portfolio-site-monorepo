@@ -4,7 +4,6 @@ const flickityOptions = {
   initialIndex: 0,
 };
 
-// eslint-disable-next-line react/prop-types
 function ImageCarouselComponent({ galleryImages }) {
   return (
     <Flickity
@@ -15,7 +14,6 @@ function ImageCarouselComponent({ galleryImages }) {
       reloadOnUpdate
       static
     >
-      {/* eslint-disable-next-line react/prop-types */}
       {galleryImages.map((image, index) => (
         <img key={index} src={image} alt={`Slide ${index}`} />
       ))}

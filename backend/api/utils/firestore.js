@@ -13,13 +13,7 @@ async function initializeFirestore() {
 
   try {
     if (process.env.NODE_ENV === "production") {
-      console.log(process.env.NODE_ENV);
-      console.log(
-        "FIREBASE_SERVICE_ACCOUNT:",
-        process.env.FIREBASE_SERVICE_ACCOUNT
-      );
       const base64String = process.env.FIREBASE_SERVICE_ACCOUNT;
-      console.log(base64String);
 
       if (base64String) {
         const decodedString = Buffer.from(base64String, "base64").toString(

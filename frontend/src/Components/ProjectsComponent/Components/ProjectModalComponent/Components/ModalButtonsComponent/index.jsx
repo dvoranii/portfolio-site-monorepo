@@ -3,7 +3,6 @@ import GithubLogo from "/assets/logo-github.svg";
 import WebsiteIcon from "/assets/modals/website-icon.png";
 import LinkedinLogo from "/assets/logo-linkedin.svg";
 
-// eslint-disable-next-line react/prop-types
 function ModalButtonsComponent({ gitRepo, siteURL, linkedInURL, context }) {
   return (
     <div className="btns--wrapper__outer">
