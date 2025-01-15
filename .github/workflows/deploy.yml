@@ -39,7 +39,7 @@ jobs:
 
       - name: Copy root level files
         run: |
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" \
           --exclude 'node_modules' \
           --exclude '.git' \
           --exclude 'frontend/dist' \
@@ -49,12 +49,12 @@ jobs:
 
       - name: Copy frontend files to server
         run: |
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" \
           ./frontend/dist/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/portfolio-site-monorepo/frontend/dist/
 
       - name: Copy backend files to server
         run: |
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" \
           --exclude '.env' \
           --exclude 'node_modules' \
           --exclude 'config/serviceAccounts.json' \
