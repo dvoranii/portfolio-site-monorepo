@@ -1,0 +1,45 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.x"
+
+      - name: Install dependencies for all workspaces
+        run: npm install
+
+      - name: Build frontend
+        run: npm run build --workspace=frontend
+
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.DO_SSH_KEY }}
+
+      - name: Create directories on server
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "sudo mkdir -p /var/www/ildidev/portfolio-site-monorepo/frontend /var/www/ildidev/portfolio-site-monorepo/backend && sudo chown -R ${{ secrets.DO_SSH_USER }} /var/www/ildidev/portfolio-site-monorepo"
+
+      - name: Copy frontend files to server
+        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude '.env' --exclude 'config/serviceAccounts.json' ./frontend/dist/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/portfolio-site-monorepo/frontend
+
+      - name: Copy backend files to server
+        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude '.env' --exclude 'config/serviceAccounts.json' ./backend/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/portfolio-site-monorepo/backend
+
+      - name: Copy ecosystem.config.js
+        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ecosystem.config.js ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/portfolio-site-monorepo
+
+      - name: Restart server using PM2 ecosystem file
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "cd /var/www/ildidev/portfolio-site-monorepo && pm2 restart ecosystem.config.js || pm2 start ecosystem.config.js"
