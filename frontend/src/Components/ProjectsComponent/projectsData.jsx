@@ -44,7 +44,7 @@ const projects = [
     projectDescription:
       "I designed and developed a responsive full-stack web app using React, TypeScript, Node.js, and MySQL. Users can sign up manually or with Google, access free and premium blogs and tutorials via Stripe, customize profiles, comment, follow others, and chat. The app includes robust security features like CSRF protection, reCAPTCHA, input sanitization, and IP blacklisting. Deployed with a CI/CD pipeline for streamlined updates.",
     galleryImages: [FSFCarouselImg1, FSFCarouselImg2, FSFCarouselImg3],
-    githubURL: "https://github.com/dvoranii/portfolio-site-monorepo",
+    githubURL: "https://github.com/dvoranii/fullstack-fanatic-mysql/tree/main",
     liveDemoURL: "https://staging.fullstackfanatic.com/",
     figmaLink:
       "https://www.figma.com/design/QI30cDuiJrvMoWTAKRunZV/Fullstack-Fanatic?node-id=0-1&p=f&t=AdVBBbt6mhtSsfhN-0",
