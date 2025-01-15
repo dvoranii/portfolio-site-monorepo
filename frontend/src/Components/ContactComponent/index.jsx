@@ -10,7 +10,7 @@ import { useRecaptcha } from "../../Hooks/useReCAPTCHA";
 function ContactComponent() {
   const csrfToken = useCsrfToken();
   const recaptchaToken = useRecaptcha(
-    "6LdntzApAAAAAH5dBl-21sMj1Gv0W_EdTEJV5tKF"
+    "6Lep07cqAAAAAJwH7--7xSuzoitPmrPJ_4WxEjNb"
   );
 
   const [formData, setFormData] = useState({

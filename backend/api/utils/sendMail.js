@@ -1,6 +1,5 @@
 import nodemailer from "nodemailer";
 
-// Function to create and configure the transporter
 const createTransporter = () => {
   const isDevelopment = process.env.NODE_ENV === "development";
 

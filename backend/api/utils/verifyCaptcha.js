@@ -1,5 +1,3 @@
-// import fetch from "node-fetch";
-
 const verifyRecaptcha = async (token) => {
   const secret = process.env.SECRET_KEY;
   const response = await fetch(

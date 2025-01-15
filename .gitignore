@@ -16,3 +16,5 @@ node_modules/
 /backend/api/config
 
 /.github/workflows/deploy.yml
+
+ecosystem.config.js
