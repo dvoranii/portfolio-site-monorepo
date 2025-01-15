@@ -10,6 +10,11 @@ node_modules/
 /frontend/.vscode/
 /frontend/dist/
 
+frontend/assets/
+frontend/manifest.json
+frontend/robots.txt
+frontend/sw.js
+
 # Ignore backend specific files
 /backend/node_modules/
 /backend/.env
