@@ -11,75 +11,32 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 # Updated to v3
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3 # Updated to v3
+        uses: actions/setup-node@v2
         with:
           node-version: "18.x"
-          cache: "npm" # Added caching for faster builds
 
       - name: Install dependencies for all workspaces
-        run: npm ci # Using ci instead of install for more reliable builds
+        run: npm install
 
       - name: Build frontend
         run: npm run build --workspace=frontend
 
       - name: Add SSH key
-        uses: webfactory/ssh-agent@v0.8.0 # Updated to latest version
+        uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.DO_SSH_KEY }}
 
       - name: Create directories on server
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "
-            sudo mkdir -p /var/www/ildidev/portfolio-site-monorepo/{frontend/dist,backend} && 
-            sudo chown -R ${{ secrets.DO_SSH_USER }}:${{ secrets.DO_SSH_USER }} /var/www/ildidev/portfolio-site-monorepo
-          "
-
-      - name: Copy root level files
-        run: |
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
-          --exclude 'node_modules' \
-          --exclude '.git' \
-          --exclude 'frontend/dist' \
-          --exclude 'frontend/node_modules' \
-          --exclude 'backend/node_modules' \
-          ./ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/portfolio-site-monorepo/
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "sudo mkdir -p /var/www/ildidev/portfolio-site-monorepo/frontend/dist /var/www/ildidev/portfolio-site-monorepo/backend && sudo chown -R ${{ secrets.DO_SSH_USER }} /var/www/ildidev/portfolio-site-monorepo"
 
       - name: Copy frontend files to server
-        run: |
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
-          ./frontend/dist/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/portfolio-site-monorepo/frontend/dist/
+        run: rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ./frontend/dist/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/portfolio-site-monorepo/frontend/dist/
 
       - name: Copy backend files to server
-        run: |
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
-          --exclude '.env' \
-          --exclude 'node_modules' \
-          --exclude 'config/serviceAccounts.json' \
-          ./backend/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/portfolio-site-monorepo/backend/
-
-      - name: Install production dependencies on server
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "
-            cd /var/www/ildidev/portfolio-site-monorepo && 
-            npm ci --production
-          "
+        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude '.env' --exclude 'config/serviceAccounts.json' ./backend/ ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }}:/var/www/ildidev/portfolio-site-monorepo/backend
 
       - name: Restart server using PM2
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "
-            cd /var/www/ildidev/portfolio-site-monorepo && 
-            pm2 delete ecosystem.config.js || true && 
-            pm2 start ecosystem.config.js
-          "
-
-      - name: Verify deployment
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "
-            echo 'Checking PM2 status...' && 
-            pm2 list && 
-            echo 'Checking directory structure...' && 
-            ls -la /var/www/ildidev/portfolio-site-monorepo/
-          "
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.DO_SSH_USER }}@${{ secrets.DO_SSH_HOST }} "cd /var/www/ildidev/portfolio-site-monorepo && pm2 restart ecosystem.config.js || pm2 start ecosystem.config.js"
