@@ -89,7 +89,7 @@ const projects = [
     projectDescription: `I spearheaded the beta development of Canadian Global Logistics® Inc.'s website on Vercel, featuring a 3D spinning globe and advanced, responsive design. The site includes detailed forms for quotes and contacts, showcasing my skills in creating functional, aesthetically pleasing web solutions for the logistics sector.`,
     galleryImages: [CGLCarouselThumb, CGLCarouselImg2, CGLCarouselImg3],
     githubURL: "https://github.com/dvoranii/reCaptchaV2",
-    liveDemoURL: "https://cglwebsite.vercel.app/",
+    liveDemoURL: "https://cglwebsitetest.xyz/",
   },
   {
     id: 4,
